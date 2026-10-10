@@ -9,17 +9,21 @@ const commenApi=require("./routes/common_Api");
 const adminRouter=require("./routes/Admin");
 const studentRouter=require("./routes/student");
 
-app.use(cors())
+app.use(cors({
+    origin: process.env.FRONTEND_URL || "*",
+    credentials: true
+}));
 app.use(express.static(path.join(__dirname, 'uploads')));
 app.use(express.urlencoded({ extended: true }));
-app.use(express.json())
+app.use(express.json());
 app.use(authuser);
 // app.use(authorization);
 app.use("/common",commenApi);
 app.use("/admin",adminRouter);
 app.use("/student",studentRouter);
 
-app.listen(4000,"localhost",()=>{
-    console.log("server start at port 4000");
-})
+const PORT = process.env.PORT || 4000;
+app.listen(PORT, () => {
+    console.log(`Server started at port ${PORT}`);
+});
 

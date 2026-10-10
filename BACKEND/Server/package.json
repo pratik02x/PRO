@@ -1,4 +1,8 @@
 {
+  "scripts": {
+    "start": "node Server/server.js",
+    "dev": "nodemon Server/server.js"
+  },
   "dependencies": {
     "cors": "^2.8.5",
     "crypto-js": "^4.2.0",
@@ -10,3 +14,4 @@
     "path": "^0.12.7"
   }
 }
+

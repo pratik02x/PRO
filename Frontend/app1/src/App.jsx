@@ -48,7 +48,7 @@ function App() {
        
           <Route path="/login" element={<Login/>}/>
           <Route path="/register" element={<Register/>}/>
-          <Route path="/course-details/:id" element={loginstatus ? <CourseDetails /> : <Navigate to="/home"/>} />
+          <Route path="/course-details/:id" element={ <CourseDetails /> } />
           <Route path="/updatepassword" element={loginstatus ? <UpdatePassword/> : <Navigate to="/home"/>}/>
           <Route path="/student" element={loginstatus ? <Student/> : <Navigate to="/home"/>}/>
           <Route path="/mycourses" element={loginstatus ? <Mycourses/> : <Navigate to="/home"/>}/>

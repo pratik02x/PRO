@@ -55,6 +55,7 @@ router.get("/course/all-active-course",(req,res)=>{
     const sql="SELECT * FROM courses WHERE CURRENT_DATE <= end_date";
 
     pool.query(sql,(error,data)=>{
+        console.log(result)
         res.send(result.createResult(error,data))
     })
 

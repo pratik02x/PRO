@@ -7,6 +7,9 @@ function Home() {
   const [course, setcourse] = useState([])
   const navigate = useNavigate()
 
+ 
+  const IMAGE_BASE_URL = "http://localhost:4000/uploads";
+
   useEffect(() => {
     getcourse()
   }, [])
@@ -14,12 +17,13 @@ function Home() {
   const getcourse = async () => {
     const result = await getcourses()
     if (result.status === "success") {
-      setcourse(result.data)
+      setcourse(result.data) 
     }
   }
 
   return (
     <div>
+     
       <div className="container mt-4">
         <h2 className="text-center mb-4 fw-bold">Available Courses</h2>
 
@@ -38,7 +42,7 @@ function Home() {
                   margin: "0 auto" 
                 }}
               >
-               
+                
                 <div
                   style={{
                     height: "180px", 
@@ -51,12 +55,21 @@ function Home() {
                   }}
                 >
                   <img
-                    src={`/images/${e.image}`}
+                  
+                    src={
+                      e.course_image 
+                        ? `${IMAGE_BASE_URL}/${e.course_image}` 
+                        : `/images/${e.image}`
+                    }
                     alt={e.course_name}
                     style={{
                       maxWidth: "100%",
                       maxHeight: "100%",
                       objectFit: "contain"
+                    }}
+                    
+                    onError={(i) => {
+                        i.target.src = "/images/python.png"; 
                     }}
                   />
                 </div>
@@ -67,7 +80,7 @@ function Home() {
                     {e.course_name}
                   </h6>
                   <p className="text-muted small mb-3">
-                    Starts on: {new Date(e.start_date).toDateString()}
+                    Starts on: {e.start_date ? new Date(e.start_date).toDateString() : "TBA"}
                   </p>
                   
                   <button 

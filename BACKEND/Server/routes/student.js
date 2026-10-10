@@ -16,7 +16,9 @@ router.post("/register-to-course",(req,res)=>{
         if(error){
             return res.send(result.createResult(error));
         }
+       
         else if(data.length==0){
+           console.log(data)
             const password = "sunbeam";
             // crypto 
             const hashedpassword=crypto.SHA256(password).toString();
@@ -45,6 +47,7 @@ router.post("/register-to-course",(req,res)=>{
             
         }
          else{
+           console.log(data)
              const sql=`INSERT INTO students(name,email, course_id,mobile_no) VALUES(?,?,?,?)`;
              pool.query(sql,[name,email, course_id,mobile_no],(error,data)=>{
              if(error){

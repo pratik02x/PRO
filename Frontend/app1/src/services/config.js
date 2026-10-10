@@ -1,5 +1,5 @@
 const config={
-    Base_URL:"http://localhost:4000"
+    Base_URL: import.meta.env.VITE_API_URL || "http://localhost:4000"
 }
 
-export default config
+export default config

@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { Link, useNavigate } from "react-router-dom";
 import { LoginContext } from "../App";
+import UpdatePassword from '../pages/UpdatePassword';
 
 function Navbar() {
   const { loginstatus, setloginstatus, username, userrole } = useContext(LoginContext);
@@ -22,6 +23,9 @@ function Navbar() {
     navigate("/adminsettings")
   }
 
+  const updatepassword=()=>{
+    navigate("/updatepassword")
+  }
   return (
     <>
 
@@ -63,14 +67,31 @@ function Navbar() {
                   >
                     {username}
                   </span>
+
+                  {loginstatus && userrole=="student"  &&(
                   <ul className="dropdown-menu dropdown-menu-end">
-                     <li><button className="dropdown-item" onClick={updateprofile}>Update Profile</button></li>
+                     <li><button className="dropdown-item" onClick={updatepassword}>Update Password</button></li>
                      <li><hr className="dropdown-divider" /></li>
                     
                     <li><button className="dropdown-item" onClick={logout}>Sign Out</button></li>
                     
                     
                   </ul>
+                 )}
+
+                  <ul className="dropdown-menu dropdown-menu-end">
+                    <li><button className="dropdown-item" onClick={updateprofile}>Update Profile</button></li>
+                     <li><hr className="dropdown-divider" /></li>
+                     
+                   
+                    
+                    <li><button className="dropdown-item" onClick={logout}>Sign Out</button></li>
+                    
+                    
+                  </ul>
+
+
+
                 </li>
               )}
             </ul>

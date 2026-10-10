@@ -26,6 +26,7 @@ export async function registerUser(name,email,course_id,mobile_no){
     const URL = config.Base_URL + '/student/register-to-course'
     const body = {name,email,course_id,mobile_no}
     const response=await axios.post(URL,body)
+    console.log(response.data)
     return response.data
 }
 

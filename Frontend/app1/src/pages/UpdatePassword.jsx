@@ -19,7 +19,7 @@ function UpdatePassword() {
     if(result.status=="success"){
       
         toast.success("password updated");
-        navigate("/student");
+        navigate("/home");
     }
     else{
       toast.error(result.error)
