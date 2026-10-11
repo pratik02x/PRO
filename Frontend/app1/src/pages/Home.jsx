@@ -2,13 +2,14 @@ import React, { useEffect, useState } from 'react'
 import Navbar from '../component/Navbar'
 import { getcourses } from '../services/coursesService'
 import { useNavigate } from 'react-router-dom'
+import config from '../services/config'
 
 function Home() {
   const [course, setcourse] = useState([])
   const navigate = useNavigate()
 
  
-  const IMAGE_BASE_URL = "http://localhost:4000/uploads";
+  const IMAGE_BASE_URL = `${config.Base_URL}/uploads`;
 
   useEffect(() => {
     getcourse()

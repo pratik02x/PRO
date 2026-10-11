@@ -10,7 +10,7 @@ const adminRouter=require("./routes/Admin");
 const studentRouter=require("./routes/student");
 
 app.use(cors({
-    origin: process.env.FRONTEND_URL || "*",
+    origin: true,
     credentials: true
 }));
 app.use(express.static(path.join(__dirname, 'uploads')));
