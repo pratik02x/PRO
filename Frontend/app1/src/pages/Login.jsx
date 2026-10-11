@@ -51,53 +51,104 @@ function Login() {
 
   return (
     <div
-      className="d-flex justify-content-center align-items-center vh-100"
-     style={{ backgroundColor: '#f0f8ff' }}
+      className="hero-glow-bg min-vh-100 d-flex flex-column justify-content-center align-items-center p-3"
     >
-      <div className="card p-4 shadow-lg" style={{ width: '400px', borderRadius: '15px' }}>
-        <h3 className="text-center mb-4 text-primary">Sign In</h3>
+      <div className="mb-4 text-center">
+        <Link to="/home" className="text-decoration-none d-inline-flex align-items-center gap-2">
+          <span 
+            className="d-inline-flex align-items-center justify-content-center shadow-sm"
+            style={{
+              width: "44px",
+              height: "44px",
+              borderRadius: "12px",
+              background: "linear-gradient(135deg, #2563eb 0%, #38bdf8 100%)",
+              color: "#fff"
+            }}
+          >
+            <i className="bi bi-mortarboard-fill fs-5"></i>
+          </span>
+          <span className="fs-3 fw-bold text-white">
+            Sunbeam <span className="gradient-text">e-Learno</span>
+          </span>
+        </Link>
+      </div>
 
-        <div className="mb-3">
-          <label htmlFor="inputEmail" className="form-label fw-bold">
-            Email
-          </label>
-          <input
-            type="email"
-            className="form-control"
-            id="inputEmail"
-            placeholder="Enter your email"
-            onChange={e => setEmail(e.target.value)}
-          />
+      <div 
+        className="card border-0 p-4 p-sm-5 shadow-2-strong" 
+        style={{ 
+          width: '100%', 
+          maxWidth: '440px', 
+          borderRadius: '24px',
+          background: '#ffffff',
+          boxShadow: '0 25px 50px -12px rgba(15, 23, 42, 0.25)'
+        }}
+      >
+        <div className="text-center mb-4">
+          <h3 className="fw-bold text-dark mb-1">Welcome Back</h3>
+          <p className="text-muted small">Sign in to access your courses and learning dashboard</p>
         </div>
 
         <div className="mb-3">
-          <label htmlFor="inputPassword" className="form-label fw-bold">
+          <label htmlFor="inputEmail" className="form-label fw-semibold small text-muted">
+            Email Address
+          </label>
+          <div className="input-group">
+            <span className="input-group-text bg-light border-end-0 text-muted">
+              <i className="bi bi-envelope"></i>
+            </span>
+            <input
+              type="email"
+              className="form-control form-control-modern border-start-0"
+              id="inputEmail"
+              placeholder="e.g. student@example.com"
+              onChange={e => setEmail(e.target.value)}
+            />
+          </div>
+        </div>
+
+        <div className="mb-4">
+          <label htmlFor="inputPassword" className="form-label fw-semibold small text-muted">
             Password
           </label>
-          <input
-            type="password"
-            className="form-control"
-            id="inputPassword"
-            placeholder="Enter your password"
-            onChange={e => setPassword(e.target.value)}
-          />
+          <div className="input-group">
+            <span className="input-group-text bg-light border-end-0 text-muted">
+              <i className="bi bi-lock"></i>
+            </span>
+            <input
+              type="password"
+              className="form-control form-control-modern border-start-0"
+              id="inputPassword"
+              placeholder="Enter your password"
+              onChange={e => setPassword(e.target.value)}
+            />
+          </div>
         </div>
 
         <div className="d-grid mb-3">
-          <button className="btn btn-primary fw-bold" onClick={signin}>
-            Sign In
+          <button 
+            className="btn btn-modern-primary py-2 d-flex align-items-center justify-content-center gap-2"
+            onClick={signin}
+          >
+            <span>Sign In</span>
+            <i className="bi bi-box-arrow-in-right"></i>
           </button>
         </div>
 
-        <p className="text-center">
+        <p className="text-center text-muted small mb-0">
           Don't have an account?{' '}
           <Link to="/register" className="text-decoration-none text-primary fw-bold">
-            Register Here
+            Register for Course
           </Link>
         </p>
+      </div>
+
+      <div className="mt-4 text-center">
+        <Link to="/home" className="text-white-50 text-decoration-none small">
+          <i className="bi bi-arrow-left me-1"></i> Back to Homepage
+        </Link>
       </div>
     </div>
   )
 }
 
-export default Login
+export default Login;
