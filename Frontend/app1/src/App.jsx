@@ -4,7 +4,7 @@ import {Routes,Route, Navigate, useLocation, Router} from "react-router"
 import Home from './pages/Home'
 import Login from "./pages/Login"
 import AboutUs from "./pages/AboutUs"
-import Student from "./pages/student"
+import Student from "./pages/Student"
 import Mycourses from "./pages/Mycourses"
 import Register from "./pages/Register"
 import UpdatePassword from "./pages/UpdatePassword"
