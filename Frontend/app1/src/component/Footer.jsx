@@ -5,7 +5,7 @@ function Footer() {
     <footer className="footer mt-auto py-5 text-white" style={{ backgroundColor: '#002b49' }}>
       <div className="container">
         <h2 className="mb-5 fw-bold text-uppercase">Contact Us</h2>
-        
+
         <div className="row">
           {/* Market Yard Section */}
           <div className="col-md-6 mb-4">
@@ -50,12 +50,12 @@ function Footer() {
         <div className="container d-flex justify-content-between align-items-center small text-secondary">
           <p className="mb-0">Sunbeam. © 2025. All Rights Reserved.</p>
           <div>
-            <span className="mx-2">Webmail</span> | 
-            <span className="mx-2">FAQs</span> | 
-            <span className="mx-2">Sitemap</span> | 
+            <span className="mx-2">Webmail</span> |
+            <span className="mx-2">FAQs</span> |
+            <span className="mx-2">Sitemap</span> |
             <span className="mx-2">Privacy</span>
           </div>
-          <p className="mb-0">Powered by <strong>ganesh mali</strong></p>
+
         </div>
       </div>
     </footer>
