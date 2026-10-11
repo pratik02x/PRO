@@ -1,4 +1,5 @@
 import { useLocation, useNavigate } from 'react-router-dom';
+import { getCourseImageUrl } from '../services/courseImage';
 
 export default function CourseDetails() {
   const location = useLocation();
@@ -42,10 +43,13 @@ export default function CourseDetails() {
             }}
           >
             <img 
-              src={`/images/${course.image}`} 
+              src={getCourseImageUrl(course)} 
               className="img-fluid" 
               alt={course.course_name} 
               style={{ maxHeight: '100%', maxWidth: '100%', objectFit: 'contain' }} 
+              onError={(i) => {
+                i.target.src = "/images/classroom.png";
+              }}
             />
           </div>
         </div>

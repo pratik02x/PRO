@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { getMyRegisteredCourses } from '../services/userServices'
+import { getCourseImageUrl } from '../services/courseImage'
 
 function Mycourses() {
   const [courses, setCourses] = useState([])
@@ -25,7 +26,15 @@ function Mycourses() {
           <div className="col-lg-4 col-md-6 mb-4" key={course.course_id}>
             <div className="card h-100 shadow-sm border-0" style={{ borderRadius: "15px" }}>
               <div className="p-3 bg-light text-center" style={{ height: "180px" }}>
-                <img src={`/images/${course.image}`} className="img-fluid" alt={course.course_name} style={{ maxHeight: "100%", objectFit: "contain" }} />
+                <img 
+                  src={getCourseImageUrl(course)} 
+                  className="img-fluid" 
+                  alt={course.course_name} 
+                  style={{ maxHeight: "100%", objectFit: "contain" }} 
+                  onError={(i) => {
+                    i.target.src = "/images/classroom.png";
+                  }}
+                />
               </div>
               <div className="card-body text-center">
                 <h5 className="fw-bold">{course.course_name}</h5>

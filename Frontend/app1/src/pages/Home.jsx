@@ -3,6 +3,7 @@ import Navbar from '../component/Navbar'
 import { getcourses } from '../services/coursesService'
 import { useNavigate } from 'react-router-dom'
 import config from '../services/config'
+import { getCourseImageUrl } from '../services/courseImage'
 
 function Home() {
   const [course, setcourse] = useState([])
@@ -56,21 +57,15 @@ function Home() {
                   }}
                 >
                   <img
-                  
-                    src={
-                      e.course_image 
-                        ? `${IMAGE_BASE_URL}/${e.course_image}` 
-                        : `/images/${e.image}`
-                    }
+                    src={getCourseImageUrl(e)}
                     alt={e.course_name}
                     style={{
                       maxWidth: "100%",
                       maxHeight: "100%",
                       objectFit: "contain"
                     }}
-                    
                     onError={(i) => {
-                        i.target.src = "/images/python.png"; 
+                      i.target.src = "/images/classroom.png"; 
                     }}
                   />
                 </div>
